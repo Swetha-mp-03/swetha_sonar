@@ -5,6 +5,7 @@ export const App = () => {
   const [text, setText] = useState("");
 
   const addTodo = () => {
+    console.log(todos)
     if (text.trim()) {
       setTodos([...todos, { id: Date.now(), text }]);
       setText("");
