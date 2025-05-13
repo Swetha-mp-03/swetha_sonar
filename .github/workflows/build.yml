@@ -4,9 +4,9 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened
-    paths: 
-      - "Sonar_Cloud/**"]
+    types: [opened, synchronize, reopened]
+    paths:
+      - "Sonar_Cloud/**"
 jobs:
   sonarqube:
     name: SonarQube
@@ -16,8 +16,8 @@ jobs:
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarQube Scan
-        width:
-           projectBaseDir: ./Sonar_Cloud
+        with:
+          projectBaseDir: ./Sonar_Cloud
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
